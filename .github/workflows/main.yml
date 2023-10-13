@@ -1,5 +1,11 @@
 name: debugger-action
 on: 
+  workflow_dispatch:
+    inputs:
+      SYNC_URL:
+        description: '123'
+        required: true
+        default: 'https://gitlab.com/OrangeFox/sync.git'
   watch:
     types: started
 jobs:
