@@ -22,4 +22,68 @@ jobs:
  
      - name: Don't kill instace
        if: ${{ failure() }}
-       run: sleep 65535h # Prevent to killing instance after failure
+       run: sleep 29m # Prevent to killing instance after failure
+
+       name: Don't kill instace
+       if: ${{ failure() }}
+       run: sleep 29m # Prevent to killing instance after failure
+
+       name: Don't kill instace
+       if: ${{ failure() }}
+       run: sleep 29m # Prevent to killing instance after failure
+
+       name: Don't kill instace
+       if: ${{ failure() }}
+       run: sleep 29m # Prevent to killing instance after failure
+
+       name: Don't kill instace
+       if: ${{ failure() }}
+       run: sleep 29m # Prevent to killing instance after failure
+
+       name: Don't kill instace
+       if: ${{ failure() }}
+       run: sleep 29m # Prevent to killing instance after failure
+
+       name: Don't kill instace
+       if: ${{ failure() }}
+       run: sleep 29m # Prevent to killing instance after failure
+
+       name: Don't kill instace
+       if: ${{ failure() }}
+       run: sleep 29m # Prevent to killing instance after failure
+
+       name: Don't kill instace
+       if: ${{ failure() }}
+       run: sleep 29m # Prevent to killing instance after failure
+
+       name: Don't kill instace
+       if: ${{ failure() }}
+       run: sleep 29m # Prevent to killing instance after failure
+
+       name: Don't kill instace
+       if: ${{ failure() }}
+       run: sleep 29m # Prevent to killing instance after failure
+
+       name: Don't kill instace
+       if: ${{ failure() }}
+       run: sleep 29m # Prevent to killing instance after failure
+
+       name: Don't kill instace
+       if: ${{ failure() }}
+       run: sleep 29m # Prevent to killing instance after failure
+
+       name: Don't kill instace
+       if: ${{ failure() }}
+       run: sleep 29m # Prevent to killing instance after failure
+
+       name: Don't kill instace
+       if: ${{ failure() }}
+       run: sleep 29m # Prevent to killing instance after failure
+
+       name: Don't kill instace
+       if: ${{ failure() }}
+       run: sleep 29m # Prevent to killing instance after failure
+
+       
+
+       
