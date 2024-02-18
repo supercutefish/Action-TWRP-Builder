@@ -1,11 +1,9 @@
 name: Debugging with SSH
 on:
-  push:
-    branches:
-      - test_ngork
   workflow_dispatch:
     inputs:
-        description: ''
+        TeSt:
+             description: ''
 jobs:
   build:
     runs-on: ubuntu-latest
