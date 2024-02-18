@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - test_ngork
+  workflow_dispatch:
+    inputs:
+        description: ''
 jobs:
   build:
     runs-on: ubuntu-latest
