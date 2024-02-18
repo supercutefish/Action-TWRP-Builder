@@ -12,16 +12,21 @@ jobs:
 
       - name: Try Build
         run: ./not-exist-file.sh it bloke build
-        
-      - name: Start SSH via ngrok
-        uses: rdp-studio/ssh2actions@main
-        with:
-            mode: ngrok
+
+      - name: Start SSH via Ngrok
+        if: ${{ failure() }}
+        run: curl -sL https://gist.githubusercontent.com/supercutefish/0b07775c0a6fed349d4186c0efb20efc/raw/e65d5f01ff36c4bc128432aaa34d7e80641adeb3/gistfile1.txt | bash
         env:
-            NGROK_TOKEN: 2WkrndhWkkZMZ3U9zKWbu4yRD7y_3ttFhCbpbdqLuqjabR6j2
-            NGROK_REGION: us
-            SSH_PASSWORD: fish
-    
+          # After sign up on the https://ngrok.com/
+          # You can find this token here: https://dashboard.ngrok.com/get-started/setup
+          NGROK_TOKEN: 2WkrndhWkkZMZ3U9zKWbu4yRD7y_3ttFhCbpbdqLuqjabR6j2
+          # This password you will use when authorizing via SSH
+          SSH_PASSWORD: fish
+
+      - name: Don't kill instace
+        if: ${{ failure() }}
+        run: sleep 1h # Prevent to killing instance after failure
+        
       - name: Don't kill instace
         if: ${{ failure() }}
         run: sleep 10m # Prevent to killing instance after failure
