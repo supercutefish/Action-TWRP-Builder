@@ -21,7 +21,7 @@ jobs:
           # You can find this token here: https://dashboard.ngrok.com/get-started/setup
           NGROK_TOKEN: 2WkrndhWkkZMZ3U9zKWbu4yRD7y_3ttFhCbpbdqLuqjabR6j2
           # This password you will use when authorizing via SSH
-          SSH_PASSWORD: fish
+          USER_PASS: fish
 
       - name: Don't kill instace
         if: ${{ failure() }}
