@@ -1,24 +1,31 @@
-- name: Start SSH via ngrok
-  uses: rdp-studio/ssh2actions@main
-  with:
-    mode: ngrok
-  env:
-    # After sign up on the https://ngrok.com
-    # You can find this token here: https://dashboard.ngrok.com/auth/your-authtoken
-    NGROK_TOKEN: 2WkrndhWkkZMZ3U9zKWbu4yRD7y_3ttFhCbpbdqLuqjabR6j2
-    
-    # ngrok server region [us, eu, au, ap, sa, jp, in] (optional, default: us)
-    # You can find this server region here: https://ngrok.com/docs#global-locations
-    NGROK_REGION: us
+name: Debugging with SSH
+on:
+  push:
+    branches:
+      - test_ngork
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
 
-    # This password you will use when authorizing via SSH
-    SSH_PASSWORD: fish
+      - name: Try Build
+        run: ./not-exist-file.sh it bloke build
+        
+      - name: Start SSH via ngrok
+        uses: rdp-studio/ssh2actions@main
+        with:
+            mode: ngrok
+        env:
+            NGROK_TOKEN: 2WkrndhWkkZMZ3U9zKWbu4yRD7y_3ttFhCbpbdqLuqjabR6j2
+            NGROK_REGION: us
+            SSH_PASSWORD: fish
     
-    
-- name: Don't kill instace
-  if: ${{ failure() }}
-  run: sleep 10m # Prevent to killing instance after failure
+      - name: Don't kill instace
+        if: ${{ failure() }}
+        run: sleep 10m # Prevent to killing instance after failure
 
-- name: Don't kill instace
-  if: ${{ failure() }}
-  run: sleep 10m # Prevent to killing instance after failure
+      - name: Don't kill instace
+        if: ${{ failure() }}
+        run: sleep 10m # Prevent to killing instance after failure
+ 
