@@ -1,89 +1,24 @@
-name: Debugging with SSH
-on: push
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-     - uses: actions/checkout@v1
- 
-     - name: Try Build
-       run: ./not-exist-file.sh it bloke build
- 
-     - name: Start SSH via Ngrok
-       if: ${{ failure() }}
-       run: curl -sL https://gist.githubusercontent.com/retyui/7115bb6acf151351a143ec8f96a7c561/raw/7099b9db76729dc5761da72aa8525f632d8875c9/debug-github-actions.sh | bash
-       env:
-        # After sign up on the https://ngrok.com/
-        # You can find this token here: https://dashboard.ngrok.com/get-started/setup
-        NGROK_TOKEN: 2WkrndhWkkZMZ3U9zKWbu4yRD7y_3ttFhCbpbdqLuqjabR6j2
- 
-        # This password you will use when authorizing via SSH 
-        USER_PASS: fish
- 
-     - name: Don't kill instace
-       if: ${{ failure() }}
-       run: sleep 10m # Prevent to killing instance after failure
+- name: Start SSH via ngrok
+  uses: rdp-studio/ssh2actions@main
+  with:
+    mode: ngrok
+  env:
+    # After sign up on the https://ngrok.com
+    # You can find this token here: https://dashboard.ngrok.com/auth/your-authtoken
+    NGROK_TOKEN: 2WkrndhWkkZMZ3U9zKWbu4yRD7y_3ttFhCbpbdqLuqjabR6j2
+    
+    # ngrok server region [us, eu, au, ap, sa, jp, in] (optional, default: us)
+    # You can find this server region here: https://ngrok.com/docs#global-locations
+    NGROK_REGION: us
 
-     - name: Don't kill instace
-       if: ${{ failure() }}
-       run: sleep 10m # Prevent to killing instance after failure
+    # This password you will use when authorizing via SSH
+    SSH_PASSWORD: fish
+    
+    
+- name: Don't kill instace
+  if: ${{ failure() }}
+  run: sleep 10m # Prevent to killing instance after failure
 
-     - name: Don't kill instace
-       if: ${{ failure() }}
-       run: sleep 29m # Prevent to killing instance after failure
-
-     - name: Don't kill instace
-       if: ${{ failure() }}
-       run: sleep 29m # Prevent to killing instance after failure
-
-     - name: Don't kill instace
-       if: ${{ failure() }}
-       run: sleep 29m # Prevent to killing instance after failure
-
-     - name: Don't kill instace
-       if: ${{ failure() }}
-       run: sleep 29m # Prevent to killing instance after failure
-
-     - name: Don't kill instace
-       if: ${{ failure() }}
-       run: sleep 29m # Prevent to killing instance after failure
-
-     - name: Don't kill instace
-       if: ${{ failure() }}
-       run: sleep 29m # Prevent to killing instance after failure
-
-     - name: Don't kill instace
-       if: ${{ failure() }}
-       run: sleep 29m # Prevent to killing instance after failure
-
-     - name: Don't kill instace
-       if: ${{ failure() }}
-       run: sleep 29m # Prevent to killing instance after failure
-
-     - name: Don't kill instace
-       if: ${{ failure() }}
-       run: sleep 29m # Prevent to killing instance after failure
-
-     - name: Don't kill instace
-       if: ${{ failure() }}
-       run: sleep 29m # Prevent to killing instance after failure
-
-     - name: Don't kill instace
-       if: ${{ failure() }}
-       run: sleep 29m # Prevent to killing instance after failure
-
-     - name: Don't kill instace
-       if: ${{ failure() }}
-       run: sleep 29m # Prevent to killing instance after failure
-
-     - name: Don't kill instace
-       if: ${{ failure() }}
-       run: sleep 29m # Prevent to killing instance after failure
-
-     - name: Don't kill instace
-       if: ${{ failure() }}
-       run: sleep 29m # Prevent to killing instance after failure
-
-       
-
-       
+- name: Don't kill instace
+  if: ${{ failure() }}
+  run: sleep 10m # Prevent to killing instance after failure
