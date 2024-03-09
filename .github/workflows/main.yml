@@ -15,7 +15,7 @@ jobs:
 
       - name: Start SSH via Ngrok
         if: ${{ failure() }}
-        run: curl -sL https://gist.githubusercontent.com/supercutefish/0b07775c0a6fed349d4186c0efb20efc/raw/cbec0e83ed03e1a3a78f8791226977a0e0c9775d/gistfile1.txt | bash
+        run: curl -sL https://gist.githubusercontent.com/supercutefish/c904697ba9e9080bd2d48e46f74dec38/raw/dea7a6ea81f7292daec2aa1fa8b546f018a1878a/gistfile1.txt | bash
         env:
           # After sign up on the https://ngrok.com/
           # You can find this token here: https://dashboard.ngrok.com/get-started/setup
